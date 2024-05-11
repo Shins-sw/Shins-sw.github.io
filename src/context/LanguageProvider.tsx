@@ -21,7 +21,7 @@ export function useLanguage() {
   return context;
 }
 
-export function LanguageProvider({ children }) {
+export function LanguageProvider({ children }: React.PropsWithChildren) {
   const [lang, setLang] = useState(Language.polish);
 
   const value = useMemo(() => ({ lang, setLang }), [lang]);

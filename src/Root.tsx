@@ -7,7 +7,6 @@ import englishFlag from './assets/english_flag.png';
 import instagram_icon from './assets/instagram_icon.svg';
 import artstation_icon from './assets/artstation_icon.webp';
 import email_icon from './assets/email_icon.png';
-import shins_logo from './assets/Shins_logo.png';
 
 export default function Root() {
   const { lang, setLang } = useLanguage();
