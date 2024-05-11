@@ -1,0 +1,319 @@
+@media screen and (min-width: 360px) {
+  body,
+  html {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+  }
+
+  #root {
+    height: 100%;
+    display: block;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(
+        rgba(255, 255, 255, 0.7),
+        rgba(255, 255, 255, 0.7)
+      ),
+      url('./assets/background.png');
+    background-size: cover;
+  }
+
+  .main {
+    height: 65%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .sidebar {
+    height: 35%;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    flex-wrap: wrap;
+    background-color: rgba(0, 0, 0, 0.7);
+  }
+
+  .menu {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    gap: 20px;
+  }
+
+  .menu a {
+    font-size: 20px;
+    text-decoration: none;
+    -webkit-text-decoration-skip: none;
+    color: black;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    color: white;
+  }
+
+  .logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    height: 200px;
+  }
+
+  .logo a {
+    font-size: 40px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 600;
+    font-style: normal;
+    color: white;
+    text-decoration: none;
+    -webkit-text-decoration-skip: none;
+  }
+
+  .logo img {
+    width: 200px;
+  }
+
+  .logo_sign {
+    background-image: url('./assets/Shins_logo_vertical.png');
+  }
+
+  div.vertical-line {
+    width: 2px;
+    background-color: rgba(0, 0, 0, 0.4);
+    height: 70%;
+    float: right;
+  }
+
+  .image-gallery {
+    height: 900px;
+    overflow: auto;
+  }
+
+  .cv {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 900px;
+  }
+
+  .aboutme {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 700px;
+    text-align: justify;
+  }
+
+  .aboutme p {
+    font-size: 16px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 500;
+    font-style: normal;
+    color: black;
+  }
+
+  .aboutme h1 {
+    font-size: 24px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 600;
+    font-style: normal;
+    color: black;
+  }
+
+  .footer {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+  }
+
+  .social {
+    display: grid;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .social img {
+    height: 20px;
+    padding: 5px;
+    filter: grayscale(100%);
+  }
+
+  .social img:hover {
+    height: 25px;
+    padding: 5px;
+    filter: grayscale(0%);
+  }
+
+  .footer img {
+    height: 30px;
+    padding: 5px;
+  }
+
+  .footer img:hover {
+    cursor: pointer;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  body,
+  html {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+  }
+
+  #root {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(
+        rgba(255, 255, 255, 0.7),
+        rgba(255, 255, 255, 0.7)
+      ),
+      url('./assets/background.png');
+    background-size: cover;
+    background-position: center;
+  }
+
+  .main {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .sidebar {
+    flex: 0 0 30%;
+    max-width: 300px;
+    align-items: center;
+    justify-content: center;
+    display: grid;
+    grid-template-rows: 1fr 1fr 4fr 1fr;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+  }
+
+  .menu {
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    gap: 20px;
+    padding-bottom: 150px;
+  }
+
+  .menu a {
+    font-size: 20px;
+    text-decoration: none;
+    -webkit-text-decoration-skip: none;
+    color: black;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    color: white;
+  }
+
+  .logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    height: 300px;
+    margin-top: 250px;
+  }
+
+  .logo a {
+    font-size: 40px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 600;
+    font-style: normal;
+    color: white;
+    text-decoration: none;
+    -webkit-text-decoration-skip: none;
+  }
+
+  .logo img {
+    width: 300px;
+  }
+
+  div.vertical-line {
+    width: 2px;
+    background-color: rgba(0, 0, 0, 0.4);
+    height: 70%;
+    float: right;
+  }
+
+  .image-gallery {
+    height: 900px;
+    overflow: auto;
+  }
+
+  .cv {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 900px;
+  }
+
+  .aboutme {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 700px;
+    text-align: justify;
+  }
+
+  .aboutme p {
+    font-size: 16px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 500;
+    font-style: normal;
+    color: black;
+  }
+
+  .aboutme h1 {
+    font-size: 24px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 600;
+    font-style: normal;
+    color: black;
+  }
+
+  .footer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-bottom: 10px;
+  }
+
+  .social {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .social img {
+    height: 20px;
+    padding: 5px;
+    filter: grayscale(100%);
+  }
+
+  .social img:hover {
+    height: 25px;
+    padding: 5px;
+    filter: grayscale(0%);
+  }
+
+  .footer img {
+    height: 30px;
+    padding: 5px;
+  }
+
+  .footer img:hover {
+    cursor: pointer;
+  }
+}
