@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import { createHashRouter, RouterProvider } from 'react-router-dom';
 import './index.css';
 import Root from './Root';
 import Gallery from './pages/Gallery';
@@ -8,7 +8,7 @@ import AboutMe from './pages/AboutMe';
 import Cv from './pages/Cv';
 import Index from './pages/Index';
 import { LanguageProvider } from './context/LanguageProvider';
-const router = createBrowserRouter([
+const router = createHashRouter([
   {
     path: '/',
     element: <Root />,
