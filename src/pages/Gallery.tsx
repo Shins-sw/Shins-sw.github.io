@@ -1,63 +1,34 @@
 import ResponsiveGallery from 'react-responsive-gallery';
+import background_image from '../assets/background.jpg';
 
 export default function Gallery() {
   const images = [
     {
-      src: './src/assets/background.jpg',
+      src: background_image,
     },
     {
-      src: './src/assets/background.jpg',
+      src: background_image,
     },
     {
-      src: './src/assets/background.jpg',
+      src: background_image,
     },
     {
-      src: './src/assets/background.jpg',
+      src: background_image,
     },
     {
-      src: './src/assets/background.jpg',
+      src: background_image,
     },
     {
-      src: './src/assets/background.jpg',
+      src: background_image,
     },
     {
-      src: './src/assets/background.jpg',
+      src: background_image,
     },
     {
-      src: './src/assets/background.jpg',
+      src: background_image,
     },
     {
-      src: './src/assets/background_sidebar.jpeg',
-    },
-    {
-      src: './src/assets/background.png',
-    },
-    {
-      src: './src/assets/background2.jpg',
-    },
-    {
-      src: './src/assets/background.jpg',
-    },
-    {
-      src: './src/assets/background.jpg',
-    },
-    {
-      src: './src/assets/background.jpg',
-    },
-    {
-      src: './src/assets/background.jpg',
-    },
-    {
-      src: './src/assets/background.jpg',
-    },
-    {
-      src: './src/assets/background.jpg',
-    },
-    {
-      src: './src/assets/background.jpg',
-    },
-    {
-      src: './src/assets/background.jpg',
+      src: background_image,
     },
   ];
   return (
