@@ -77,9 +77,16 @@
   }
 
   .logo_sign {
-    background-image: url('./assets/Shins_logo_vertical.png');
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    height: 200px;
   }
 
+  .logo_sign img {
+    width: 200px;
+  }
   div.vertical-line {
     width: 2px;
     background-color: rgba(0, 0, 0, 0.4);
@@ -223,7 +230,6 @@
     align-items: center;
     text-align: center;
     height: 300px;
-    margin-top: 250px;
   }
 
   .logo a {
