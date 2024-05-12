@@ -7,13 +7,16 @@ import englishFlag from './assets/english_flag.png';
 import instagram_icon from './assets/instagram_icon.svg';
 import artstation_icon from './assets/artstation_icon.webp';
 import email_icon from './assets/email_icon.png';
+import logo2 from './assets/Shins_logo.png';
 
 export default function Root() {
   const { lang, setLang } = useLanguage();
   return (
     <>
       <div className="sidebar">
-        <div className="logo_sign"></div>
+        <div className="logo_sign">
+          <img src={logo2}></img>
+        </div>
         <div className="logo">
           <Link to="/">
             <img src={logo}></img>
