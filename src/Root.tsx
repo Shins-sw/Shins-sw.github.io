@@ -1,13 +1,14 @@
 import { Outlet, Link } from 'react-router-dom';
 import { Language, useLanguage } from './context/LanguageProvider';
 import sidebar from './language/sidebar';
-import logo from './assets/Szymon.png';
+import logo from './assets/Szymon_logo_new.png';
 import polishFlag from './assets/poland_flag.gif';
 import englishFlag from './assets/english_flag.png';
 import instagram_icon from './assets/instagram_icon.svg';
 import artstation_icon from './assets/artstation_icon.webp';
 import email_icon from './assets/email_icon.png';
 import logo2 from './assets/Shins_logo.png';
+import border from './assets/border.png';
 
 export default function Root() {
   const { lang, setLang } = useLanguage();
@@ -47,7 +48,9 @@ export default function Root() {
         </div>
       </div>
       <div className="main">
+        <img src={border}></img>
         <Outlet></Outlet>
+        <img src={border}></img>
       </div>
     </>
   );
