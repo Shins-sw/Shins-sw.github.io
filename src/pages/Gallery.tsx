@@ -1,5 +1,6 @@
 import ResponsiveGallery from 'react-responsive-gallery';
 import background_image from '../assets/background.jpg';
+import './Gallery.css';
 
 export default function Gallery() {
   const images = [
