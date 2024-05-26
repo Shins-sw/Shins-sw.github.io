@@ -1,9 +1,11 @@
+import { Container } from '@mui/material';
 import cv from '../assets/cv.pdf';
-import './Cv.css';
 export default function Cv() {
   return (
-    <div className="cv">
-      <iframe src={cv} width="1000" height="900"></iframe>
-    </div>
+    <Container
+      sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}
+    >
+      <iframe src={cv} width="850" height="870"></iframe>
+    </Container>
   );
 }

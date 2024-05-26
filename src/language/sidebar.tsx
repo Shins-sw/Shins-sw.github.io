@@ -11,10 +11,6 @@ const sidebar = {
     polish: 'Portofolio',
     english: 'Portfolio',
   },
-  name: {
-    polish: 'Szymon Wieczorek',
-    english: 'Simon Evening',
-  },
   polishLanguage: {
     polish: 'Polski',
     english: 'Polish',
