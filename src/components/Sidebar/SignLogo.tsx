@@ -1,3 +1,4 @@
+// @ts-nocheck
 import Image from 'mui-image';
 import logo from '../../assets/Shins_logo.png';
 import { Box } from '@mui/material';

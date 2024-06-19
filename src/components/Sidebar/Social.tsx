@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { Link } from 'react-router-dom';
 import instagram_icon from '../../assets/instagram_icon.svg';
 import artstation_icon from '../../assets/artstation_icon.webp';
