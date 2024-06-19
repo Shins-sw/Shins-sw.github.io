@@ -1,4 +1,3 @@
-import React from 'react';
 import { useLanguage } from '../context/LanguageProvider';
 import index from '../language';
 import { Container } from '@mui/material';

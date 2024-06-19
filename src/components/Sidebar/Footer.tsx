@@ -1,11 +1,11 @@
-import React from 'react';
+// @ts-nocheck
 import polishFlag from '../../assets/poland_flag.gif';
 import englishFlag from '../../assets/english_flag.png';
 import { useLanguage, Language } from '../../context/LanguageProvider';
 import { Box } from '@mui/material';
 import Image from 'mui-image';
 
-export default function Footer({ display }) {
+export default function Footer() {
   const { setLang } = useLanguage();
   const flags = [
     { src: polishFlag, lang: Language.polish, alt: 'Polish Flag' },
@@ -27,6 +27,7 @@ export default function Footer({ display }) {
         <Image
           key={index}
           src={flag.src}
+          // @ts-expect-error package doesnt include a onClick prop
           onClick={() => setLang(flag.lang)}
           height="30px"
           width="50px"

@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { Drawer, Stack, useMediaQuery, IconButton } from '@mui/material';
 import FaceLogo from './Sidebar/FaceLogo';
 import Menu from './Sidebar/Menu';

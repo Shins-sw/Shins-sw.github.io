@@ -1,10 +1,9 @@
-import React from 'react';
+// @ts-nocheck
 import { Link } from 'react-router-dom';
 import instagram_icon from '../../assets/instagram_icon.svg';
 import artstation_icon from '../../assets/artstation_icon.webp';
 import email_icon from '../../assets/email_icon.png';
 import { Stack } from '@mui/material';
-import Image from 'mui-image';
 
 export default function Social() {
   const iconStyle = {

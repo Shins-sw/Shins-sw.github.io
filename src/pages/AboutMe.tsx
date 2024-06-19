@@ -1,4 +1,3 @@
-import React from 'react';
 import { useLanguage } from '../context/LanguageProvider';
 import aboutme from '../language/aboutme';
 import { Container, Box } from '@mui/material';

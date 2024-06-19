@@ -1,4 +1,4 @@
-import React from 'react';
+// @ts-nocheck
 import Image from 'mui-image';
 import logo from '../../assets/Shins_logo.png';
 import { Box } from '@mui/material';
@@ -17,6 +17,7 @@ export default function SignLogo({ display }) {
       <Image
         duration={0}
         src={logo}
+        // @ts-expect-error package doesnt include a sx prop
         sx={{
           maxWidth: { xs: '140px', md: '305px' },
           transitionProperty: 'none',
