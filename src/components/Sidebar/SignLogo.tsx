@@ -1,10 +1,27 @@
+import React from 'react';
+import Image from 'mui-image';
 import logo from '../../assets/Shins_logo.png';
-import './SignLogo.css';
+import { Box } from '@mui/material';
 
-export default function SignLogo() {
+export default function SignLogo({ display }) {
   return (
-    <div className="logo_sign">
-      <img src={logo}></img>
-    </div>
+    <Box
+      sx={{
+        display: display,
+        justifyContent: 'center',
+        alignItems: 'center',
+        padding: { xs: '0 80px 0 0', md: '20px 0' },
+        width: '100%',
+      }}
+    >
+      <Image
+        duration={0}
+        src={logo}
+        sx={{
+          maxWidth: { xs: '140px', md: '305px' },
+          transitionProperty: 'none',
+        }}
+      />
+    </Box>
   );
 }

@@ -1,11 +1,12 @@
+import { Typography } from '@mui/material';
 const aboutme = {
   title: {
-    polish: <h1>O mnie</h1>,
-    english: <h1>About me</h1>,
+    polish: <Typography variant="h1">O mnie</Typography>,
+    english: <Typography variant="h1">About me</Typography>,
   },
   description: {
     polish: (
-      <p>
+      <Typography variant="body1">
         Nazywam się Szymon Wieczorek, urodziłem się w 1988 roku. Jestem polskim
         artystą. Obecnie żyję w górach na południu kraju. Swoją przygodę ze
         sztuką zacząłem już w liceum, gdzie uczęszczałem do klasy o profilu
@@ -34,10 +35,10 @@ const aboutme = {
         elektroradiologiem, pilotem drona, instruktorem narciarstwa i wspinaczki
         sportowej, slacklinerem, żeglarzem. Uwielbiam góry, przyrodę i
         adrenalinę.
-      </p>
+      </Typography>
     ),
     english: (
-      <p>
+      <Typography variant="body1">
         My name is Szymon Wieczorek, I was born in 1988. I am Polish artist. I
         currently live in the mountains in the south of the country. Yours I
         started my adventure with art in high school, where I attended classes
@@ -64,7 +65,7 @@ const aboutme = {
         interests more or less related to art. Among other things, I am
         electroradiologist, drone pilot, ski instructor and sports climbing,
         slackliner, sailor. I love mountains, nature and adrenaline.
-      </p>
+      </Typography>
     ),
   },
 };

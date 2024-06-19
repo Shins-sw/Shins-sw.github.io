@@ -5,9 +5,10 @@ import './index.css';
 import Root from './Root';
 import Gallery from './pages/Gallery';
 import AboutMe from './pages/AboutMe';
-import Cv from './pages/Cv';
 import Index from './pages/Index';
 import { LanguageProvider } from './context/LanguageProvider';
+import { ThemeProvider } from '@emotion/react';
+import theme from './theme/theme';
 const router = createHashRouter([
   {
     path: '/',
@@ -15,7 +16,6 @@ const router = createHashRouter([
     children: [
       { index: true, element: <Index /> },
       { path: 'gallery', element: <Gallery /> },
-      { path: 'cv', element: <Cv /> },
       { path: 'aboutme', element: <AboutMe /> },
     ],
   },
@@ -23,8 +23,10 @@ const router = createHashRouter([
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
-    <LanguageProvider>
-      <RouterProvider router={router} />
-    </LanguageProvider>
+    <ThemeProvider theme={theme}>
+      <LanguageProvider>
+        <RouterProvider router={router} />
+      </LanguageProvider>
+    </ThemeProvider>
   </React.StrictMode>
 );

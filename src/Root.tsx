@@ -1,11 +1,21 @@
+import React from 'react';
 import Sidebar from './components/Sidebar';
-import Main from './components/Main';
+import { Stack, Box } from '@mui/material';
+import { Outlet } from 'react-router-dom';
 
 export default function Root() {
+  const drawerWidthDesktop = '350px';
   return (
-    <>
-      <Sidebar></Sidebar>
-      <Main></Main>
-    </>
+    <Box sx={{ display: 'flex', flexDirection: { xs: 'column', md: 'row' } }}>
+      <Sidebar />
+      <Stack
+        direction={{ xs: 'column', md: 'row' }}
+        justifyContent="center"
+        alignItems="center"
+        width={{ xs: '100vw', md: `calc(100vw - ${drawerWidthDesktop})` }}
+      >
+        <Outlet />
+      </Stack>
+    </Box>
   );
 }
