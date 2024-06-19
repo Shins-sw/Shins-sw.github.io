@@ -10,6 +10,8 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@mui/icons-material": "^5.15.20",
+    "@mui/styles": "^5.15.18",
     "@types/mui-image": "^1.0.5",
     "@uidotdev/usehooks": "^2.4.1",
     "mui-image": "^1.0.7",

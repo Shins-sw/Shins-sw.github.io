@@ -4,34 +4,15 @@ html {
   margin: 0;
   padding: 0;
 }
-
-@media screen and (min-width: 360px) and (max-width: 1023px) {
-  #root {
-    height: 100%;
-    display: block;
-    align-items: center;
-    justify-content: center;
-    background: linear-gradient(
-        rgba(255, 255, 255, 0.7),
-        rgba(255, 255, 255, 0.7)
-      ),
-      url('./assets/background.png');
-    background-size: cover;
-  }
-}
-
-@media screen and (min-width: 1024px) {
-  #root {
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: linear-gradient(
-        rgba(255, 255, 255, 0.7),
-        rgba(255, 255, 255, 0.7)
-      ),
-      url('./assets/background.png');
-    background-size: cover;
-    background-position: center;
-  }
+#root {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(
+      rgba(255, 255, 255, 0.7),
+      rgba(255, 255, 255, 0.7)
+    ),
+    url('./assets/background.png');
+  background-size: cover;
 }

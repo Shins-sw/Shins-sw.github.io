@@ -3,10 +3,6 @@ const sidebar = {
     polish: 'O mnie',
     english: 'About me',
   },
-  cv: {
-    polish: 'Cv',
-    english: 'Cv',
-  },
   portfolio: {
     polish: 'Portofolio',
     english: 'Portfolio',

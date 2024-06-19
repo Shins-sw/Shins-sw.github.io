@@ -1,52 +1,43 @@
-import sidebar from '../../language/sidebar';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import { useLanguage } from '../../context/LanguageProvider';
-import { Stack, Typography, useMediaQuery } from '@mui/material';
-import theme from '../../theme/theme';
+import { Stack, Typography } from '@mui/material';
+import sidebar from '../../language/sidebar';
 
-export default function Menu() {
+export default function Menu({ display, closeSidebarHandler }) {
   const { lang } = useLanguage();
-  const isSmallScreen = useMediaQuery(theme.breakpoints.down('md'));
+  const closeSidebar = () => {
+    closeSidebarHandler();
+  };
+
+  const links = [
+    { to: 'aboutme', text: sidebar.aboutme[lang] },
+    { to: 'gallery', text: sidebar.portfolio[lang] },
+  ];
+
   return (
     <Stack
-      direction={isSmallScreen ? 'row' : 'column'}
+      direction="column"
       alignItems="center"
       justifyContent="center"
-      sx={{
-        paddingTop: isSmallScreen ? '5px' : '7vh',
-        textDecoration: 'none',
-      }}
+      sx={{ paddingTop: { xs: '5px', md: '7vh' }, display: display }}
     >
-      <Typography
-        variant="menu_link"
-        sx={{
-          paddingLeft: isSmallScreen ? '15px' : '0',
-          '&:hover': { filter: 'grayscale(0.3)' },
-          '& a': { textDecoration: 'none' },
-        }}
-      >
-        <Link to="aboutme">{sidebar.aboutme[lang]}</Link>
-      </Typography>
-      <Typography
-        variant="menu_link"
-        sx={{
-          paddingLeft: isSmallScreen ? '15px' : '0',
-          '&:hover': { filter: 'grayscale(0.3)' },
-          '& a': { textDecoration: 'none' },
-        }}
-      >
-        <Link to="gallery">{sidebar.portfolio[lang]}</Link>
-      </Typography>
-      <Typography
-        variant="menu_link"
-        sx={{
-          paddingLeft: isSmallScreen ? '15px' : '0',
-          '&:hover': { filter: 'grayscale(0.3)' },
-          '& a': { textDecoration: 'none' },
-        }}
-      >
-        <Link to="cv">{sidebar.cv[lang]}</Link>
-      </Typography>
+      {links.map((link, index) => (
+        <Typography
+          key={index}
+          onClick={closeSidebar}
+          variant="menu_link"
+          sx={{
+            paddingTop: { xs: '15px', md: '0' },
+            paddingLeft: { xs: '15px', md: '0' },
+            paddingRight: { xs: '15px', md: '0' },
+            '&:hover': { filter: 'grayscale(0.3)' },
+            '& a': { textDecoration: 'none' },
+          }}
+        >
+          <Link to={link.to}>{link.text}</Link>
+        </Typography>
+      ))}
     </Stack>
   );
 }

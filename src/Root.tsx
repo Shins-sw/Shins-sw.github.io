@@ -1,18 +1,21 @@
+import React from 'react';
 import Sidebar from './components/Sidebar';
-import { Stack, useMediaQuery } from '@mui/material';
-import theme from './theme/theme';
+import { Stack, Box } from '@mui/material';
 import { Outlet } from 'react-router-dom';
 
 export default function Root() {
-  const isSmallScreen = useMediaQuery(theme.breakpoints.down('md'));
+  const drawerWidthDesktop = '350px';
   return (
-    <>
-      <Stack direction={isSmallScreen ? 'column' : 'row'}>
-        <Sidebar></Sidebar>
-        <Stack direction="column" justifyContent="center" alignItems="center">
-          <Outlet></Outlet>
-        </Stack>
+    <Box sx={{ display: 'flex', flexDirection: { xs: 'column', md: 'row' } }}>
+      <Sidebar />
+      <Stack
+        direction={{ xs: 'column', md: 'row' }}
+        justifyContent="center"
+        alignItems="center"
+        width={{ xs: '100vw', md: `calc(100vw - ${drawerWidthDesktop})` }}
+      >
+        <Outlet />
       </Stack>
-    </>
+    </Box>
   );
 }
