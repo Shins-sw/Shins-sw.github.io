@@ -13,7 +13,7 @@ export default function Gallery() {
       sx={{
         overflow: 'auto',
         height: { xs: 'calc(100vh - 100px)', md: '100vh' },
-        paddingTop: { xs: '190px', md: '0px' },
+        paddingTop: { xs: '100px', md: '0px' },
       }}
     >
       <ImageList variant="masonry" cols={isSmallScreen ? 2 : 4} gap={5}>
