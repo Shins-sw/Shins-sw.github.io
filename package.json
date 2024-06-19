@@ -12,12 +12,12 @@
   "dependencies": {
     "@mui/icons-material": "^5.15.20",
     "@mui/material": "^5.15.20",
-    "@mui/styles": "^5.15.18",
+    "@mui/styles": "^5.15.20",
     "@types/mui-image": "^1.0.5",
     "@uidotdev/usehooks": "^2.4.1",
     "mui-image": "^1.0.7",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
+    "react": "^18.2.22",
+    "react-dom": "^18.2.22",
     "react-responsive-gallery": "^4.0.0",
     "react-router-dom": "^6.23.0"
   },
