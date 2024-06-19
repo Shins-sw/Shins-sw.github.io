@@ -1,4 +1,3 @@
-// @ts-nocheck
 import { Link } from 'react-router-dom';
 import { useLanguage } from '../../context/LanguageProvider';
 import { Stack, Typography } from '@mui/material';

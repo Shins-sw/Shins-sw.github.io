@@ -1,4 +1,3 @@
-// @ts-nocheck
 import { Drawer, Stack, useMediaQuery, IconButton } from '@mui/material';
 import FaceLogo from './Sidebar/FaceLogo';
 import Menu from './Sidebar/Menu';
@@ -62,7 +61,7 @@ export default function Sidebar() {
         <SignLogo display={{ xs: 'block', md: 'none' }} />
         <Social />
         <Menu display={{ xs: 'none', md: 'flex' }} />
-        <Footer display={{ xs: 'none', md: 'block' }} />
+        <Footer />
         <Drawer
           open={open}
           sx={{

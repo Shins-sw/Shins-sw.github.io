@@ -1,4 +1,3 @@
-// @ts-nocheck
 import polishFlag from '../../assets/poland_flag.gif';
 import englishFlag from '../../assets/english_flag.png';
 import { useLanguage, Language } from '../../context/LanguageProvider';

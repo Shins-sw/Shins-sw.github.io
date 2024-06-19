@@ -7,7 +7,7 @@ import Gallery from './pages/Gallery';
 import AboutMe from './pages/AboutMe';
 import Index from './pages/Index';
 import { LanguageProvider } from './context/LanguageProvider';
-import { ThemeProvider } from '@emotion/react';
+import { ThemeProvider } from '@mui/material';
 import theme from './theme/theme';
 const router = createHashRouter([
   {
