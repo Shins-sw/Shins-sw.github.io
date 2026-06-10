@@ -28,6 +28,7 @@ export default function Menu({ display, closeSidebarHandler }) {
           onClick={closeSidebar}
           variant="menu_link"
           sx={{
+            fontSize: { xs: '20px', sm: '24px', md: '30px' },
             paddingTop: { xs: '15px', md: '0' },
             paddingLeft: { xs: '15px', md: '0' },
             paddingRight: { xs: '15px', md: '0' },

@@ -17,6 +17,7 @@ export default function Footer() {
         position: 'absolute',
         bottom: '16px',
         right: '16px',
+        zIndex: 10,
         display: 'flex',
         flexDirection: { xs: 'column', md: 'row' },
         gap: '10px',
