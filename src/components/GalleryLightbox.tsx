@@ -1,14 +1,5 @@
 import { useEffect, useRef } from 'react';
-import {
-  Box,
-  Dialog,
-  IconButton,
-  useMediaQuery,
-} from '@mui/material';
-import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
-import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
-import CloseIcon from '@mui/icons-material/Close';
-import theme from '../theme/theme';
+import { createPortal } from 'react-dom';
 
 interface Props {
   images: { src: string }[];
@@ -18,7 +9,6 @@ interface Props {
 }
 
 export default function GalleryLightbox({ images, openIndex, onClose, onNavigate }: Props) {
-  const isFullScreen = useMediaQuery(theme.breakpoints.down('sm'));
   const touchStartX = useRef(0);
   const isOpen = openIndex !== null;
 
@@ -31,115 +21,121 @@ export default function GalleryLightbox({ images, openIndex, onClose, onNavigate
       if (e.key === 'Escape') onClose();
     };
     window.addEventListener('keydown', handleKey);
-    return () => window.removeEventListener('keydown', handleKey);
+    document.body.style.overflow = 'hidden';
+    return () => {
+      window.removeEventListener('keydown', handleKey);
+      document.body.style.overflow = '';
+    };
   }, [openIndex, isOpen, images.length, onNavigate, onClose]);
 
-  const handleTouchStart = (e: React.TouchEvent) => {
+  if (!isOpen || openIndex === null) return null;
+
+  function handleTouchStart(e: React.TouchEvent) {
     touchStartX.current = e.touches[0].clientX;
-  };
+  }
 
-  const handleTouchEnd = (e: React.TouchEvent) => {
-    if (openIndex === null) return;
+  function handleTouchEnd(e: React.TouchEvent) {
     const delta = touchStartX.current - e.changedTouches[0].clientX;
-    if (delta > 50) onNavigate((openIndex + 1) % images.length);
-    if (delta < -50) onNavigate((openIndex - 1 + images.length) % images.length);
+    if (delta > 50) onNavigate((openIndex! + 1) % images.length);
+    if (delta < -50) onNavigate((openIndex! - 1 + images.length) % images.length);
+  }
+
+  const btnBase: React.CSSProperties = {
+    position: 'absolute',
+    top: '50%',
+    transform: 'translateY(-50%)',
+    background: 'rgba(255,255,255,0.15)',
+    border: 'none',
+    borderRadius: '50%',
+    width: 44,
+    height: 44,
+    cursor: 'pointer',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    color: '#fff',
+    fontSize: 20,
+    transition: 'background 0.2s',
   };
 
-  return (
-    <Dialog
-      open={isOpen}
-      onClose={onClose}
-      fullScreen={isFullScreen}
-      maxWidth={false}
-      PaperProps={{
-        sx: {
-          bgcolor: 'rgba(0,0,0,0.92)',
-          boxShadow: 'none',
-          borderRadius: isFullScreen ? 0 : '4px',
-        },
-      }}
-      slotProps={{
-        backdrop: {
-          sx: { bgcolor: 'rgba(0,0,0,0.85)' },
-        },
+  return createPortal(
+    <div
+      onClick={onClose}
+      style={{
+        position: 'fixed',
+        inset: 0,
+        zIndex: 1000,
+        background: 'rgba(0,0,0,0.92)',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
       }}
     >
-      <Box
-        onTouchStart={handleTouchStart}
-        onTouchEnd={handleTouchEnd}
-        sx={{
-          position: 'relative',
+      {/* Close */}
+      <button
+        onClick={onClose}
+        style={{
+          position: 'absolute',
+          top: 12,
+          right: 12,
+          background: 'rgba(255,255,255,0.1)',
+          border: 'none',
+          borderRadius: '50%',
+          width: 40,
+          height: 40,
+          cursor: 'pointer',
+          color: '#fff',
+          fontSize: 20,
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
-          minWidth: { sm: '60vw' },
-          minHeight: { sm: '60vh' },
-          p: { xs: '60px 16px', sm: '40px 80px', md: '40px 80px' },
+          zIndex: 1,
         }}
+        aria-label="Close"
       >
-        {/* Close button */}
-        <IconButton
-          onClick={onClose}
-          sx={{
-            position: 'absolute',
-            top: 8,
-            right: 8,
-            color: 'white',
-            bgcolor: 'rgba(255,255,255,0.1)',
-            '&:hover': { bgcolor: 'rgba(255,255,255,0.2)' },
-            zIndex: 1,
-          }}
-        >
-          <CloseIcon />
-        </IconButton>
+        ✕
+      </button>
 
-        {/* Prev arrow — desktop/tablet only */}
-        <IconButton
-          onClick={() => openIndex !== null && onNavigate((openIndex - 1 + images.length) % images.length)}
-          sx={{
-            display: { xs: 'none', sm: 'flex' },
-            position: 'absolute',
-            left: 12,
-            color: 'white',
-            bgcolor: 'rgba(255,255,255,0.15)',
-            '&:hover': { bgcolor: 'rgba(255,255,255,0.25)' },
-          }}
-        >
-          <ArrowBackIosIcon sx={{ ml: '4px' }} />
-        </IconButton>
+      {/* Prev */}
+      <button
+        onClick={(e) => { e.stopPropagation(); onNavigate((openIndex - 1 + images.length) % images.length); }}
+        style={{ ...btnBase, left: 12 }}
+        aria-label="Previous"
+      >
+        ‹
+      </button>
 
-        {/* Image */}
-        {openIndex !== null && (
-          <Box
-            component="img"
-            src={images[openIndex].src}
-            alt={`Gallery image ${openIndex + 1}`}
-            sx={{
-              maxWidth: '90vw',
-              maxHeight: '85vh',
-              objectFit: 'contain',
-              display: 'block',
-              userSelect: 'none',
-              WebkitUserDrag: 'none',
-            }}
-          />
-        )}
-
-        {/* Next arrow — desktop/tablet only */}
-        <IconButton
-          onClick={() => openIndex !== null && onNavigate((openIndex + 1) % images.length)}
-          sx={{
-            display: { xs: 'none', sm: 'flex' },
-            position: 'absolute',
-            right: 12,
-            color: 'white',
-            bgcolor: 'rgba(255,255,255,0.15)',
-            '&:hover': { bgcolor: 'rgba(255,255,255,0.25)' },
+      {/* Image */}
+      <div
+        onClick={(e) => e.stopPropagation()}
+        onTouchStart={handleTouchStart}
+        onTouchEnd={handleTouchEnd}
+        style={{ padding: '60px 80px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}
+      >
+        <img
+          src={images[openIndex].src}
+          alt={`Gallery image ${openIndex + 1}`}
+          style={{
+            maxWidth: '90vw',
+            maxHeight: '85vh',
+            objectFit: 'contain',
+            display: 'block',
+            userSelect: 'none',
+            borderRadius: 4,
           }}
-        >
-          <ArrowForwardIosIcon />
-        </IconButton>
-      </Box>
-    </Dialog>
+          draggable={false}
+        />
+      </div>
+
+      {/* Next */}
+      <button
+        onClick={(e) => { e.stopPropagation(); onNavigate((openIndex + 1) % images.length); }}
+        style={{ ...btnBase, right: 12 }}
+        aria-label="Next"
+      >
+        ›
+      </button>
+    </div>,
+    document.body
   );
 }
