@@ -1,18 +1,5 @@
-body,
-html {
-  height: 100%;
-  margin: 0;
-  padding: 0;
-}
-#root {
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: linear-gradient(
-      rgba(255, 255, 255, 0.7),
-      rgba(255, 255, 255, 0.7)
-    ),
-    url('./assets/background.png');
-  background-size: cover;
-}
+*, *::before, *::after { box-sizing: border-box; }
+html, body, #root { height: 100%; margin: 0; padding: 0; }
+body { font-family: 'Jost', sans-serif; }
+a { text-decoration: none; }
+img { display: block; }

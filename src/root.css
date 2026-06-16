@@ -1,0 +1,13 @@
+.content-area {
+  position: relative;
+  z-index: 3;
+  min-height: 100vh;
+  padding-left: 356px; /* 300px sidebar + 28px left + 28px gap */
+}
+
+@media (max-width: 899px) {
+  .content-area {
+    padding-left: 0;
+    padding-top: 98px; /* 36px status + 62px top bar */
+  }
+}
