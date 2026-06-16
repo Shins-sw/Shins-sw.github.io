@@ -5,12 +5,14 @@ import strings from '../language/contact';
 import './Contact.css';
 
 // Paste your Formspree form ID here after signing up at formspree.io
-const FORMSPREE_ID = 'YOUR_FORM_ID';
+const FORMSPREE_ID = 'mbdebdkr';
 
 export default function Contact() {
   const { lang } = useLanguage();
   const isMobile = useIsMobile();
-  const [status, setStatus] = useState<'idle' | 'sending' | 'sent' | 'error'>('idle');
+  const [status, setStatus] = useState<'idle' | 'sending' | 'sent' | 'error'>(
+    'idle',
+  );
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -19,7 +21,10 @@ export default function Contact() {
     try {
       const res = await fetch(`https://formspree.io/f/${FORMSPREE_ID}`, {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+        headers: {
+          'Content-Type': 'application/json',
+          Accept: 'application/json',
+        },
         body: JSON.stringify(data),
       });
       setStatus(res.ok ? 'sent' : 'error');
@@ -94,7 +99,14 @@ export default function Contact() {
             {strings.body[lang]}
           </p>
 
-          <div style={{ marginTop: 30, display: 'flex', flexDirection: 'column', gap: 18 }}>
+          <div
+            style={{
+              marginTop: 30,
+              display: 'flex',
+              flexDirection: 'column',
+              gap: 18,
+            }}
+          >
             <div>
               <div
                 style={{
@@ -191,14 +203,29 @@ export default function Contact() {
               </label>
 
               {status === 'error' && (
-                <p style={{ fontFamily: "'Jost', sans-serif", fontSize: 13, color: '#c0392b', margin: '0 0 10px' }}>
-                  {lang === 'polish' ? 'Coś poszło nie tak. Spróbuj ponownie.' : 'Something went wrong. Please try again.'}
+                <p
+                  style={{
+                    fontFamily: "'Jost', sans-serif",
+                    fontSize: 13,
+                    color: '#c0392b',
+                    margin: '0 0 10px',
+                  }}
+                >
+                  {lang === 'polish'
+                    ? 'Coś poszło nie tak. Spróbuj ponownie.'
+                    : 'Something went wrong. Please try again.'}
                 </p>
               )}
 
-              <button type="submit" disabled={status === 'sending'} style={{ opacity: status === 'sending' ? 0.6 : 1 }}>
+              <button
+                type="submit"
+                disabled={status === 'sending'}
+                style={{ opacity: status === 'sending' ? 0.6 : 1 }}
+              >
                 {status === 'sending'
-                  ? (lang === 'polish' ? 'Wysyłanie…' : 'Sending…')
+                  ? lang === 'polish'
+                    ? 'Wysyłanie…'
+                    : 'Sending…'
                   : strings.submit[lang]}
               </button>
             </form>
