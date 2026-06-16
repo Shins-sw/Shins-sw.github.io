@@ -15,10 +15,10 @@ const SIDEBAR_GLASS: React.CSSProperties = {
 };
 
 const NAV_ITEMS = [
-  { label: 'Start', to: '/', end: true },
-  { label: 'About', to: '/about', end: false },
-  { label: 'Portfolio', to: '/portfolio', end: false },
-  { label: 'Contact', to: '/contact', end: false },
+  { pl: 'Start', en: 'Start', to: '/', end: true },
+  { pl: 'O mnie', en: 'About', to: '/about', end: false },
+  { pl: 'Portfolio', en: 'Portfolio', to: '/portfolio', end: false },
+  { pl: 'Kontakt', en: 'Contact', to: '/contact', end: false },
 ];
 
 function InstagramIcon() {
@@ -71,9 +71,11 @@ function SocialCircle({ children, href }: { children: React.ReactNode; href: str
 }
 
 function NavItems({ fontSize = 16, gap = 1, onClose }: { fontSize?: number; gap?: number; onClose?: () => void }) {
+  const { lang } = useLanguage();
+  const isPl = lang === Language.polish;
   return (
     <nav style={{ display: 'flex', flexDirection: 'column', gap, width: '100%', alignItems: 'stretch' }}>
-      {NAV_ITEMS.map(({ label, to, end }) => (
+      {NAV_ITEMS.map(({ pl, en, to, end }) => (
         <NavLink
           key={to}
           to={to}
@@ -105,7 +107,7 @@ function NavItems({ fontSize = 16, gap = 1, onClose }: { fontSize?: number; gap?
                   flexShrink: 0,
                 }}
               />
-              {label}
+              {isPl ? pl : en}
             </>
           )}
         </NavLink>
@@ -224,6 +226,8 @@ function DesktopSidebar() {
 function MobileSidebar() {
   const [menuOpen, setMenuOpen] = useState(false);
   const navigate = useNavigate();
+  const { lang } = useLanguage();
+  const isPl = lang === Language.polish;
 
   function handleNavClick(to: string) {
     setMenuOpen(false);
@@ -247,34 +251,6 @@ function MobileSidebar() {
           borderTop: 'none',
         }}
       >
-        {/* Status bar */}
-        <div
-          style={{
-            height: 36,
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'space-between',
-            padding: '0 20px',
-          }}
-        >
-          <span style={{ fontFamily: "'Jost', sans-serif", fontSize: 12, fontWeight: 600, color: '#f4f6f7', textShadow: '0 1px 4px rgba(0,0,0,0.5)' }}>
-            {new Date().getHours()}:{String(new Date().getMinutes()).padStart(2, '0')}
-          </span>
-          <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
-            <div style={{ display: 'flex', alignItems: 'flex-end', gap: 2, height: 10 }}>
-              {[4, 6, 8, 10].map((h, i) => (
-                <span key={i} style={{ width: 3, height: h, background: '#f4f6f7', borderRadius: 1, display: 'inline-block' }} />
-              ))}
-            </div>
-            <div style={{ display: 'inline-flex', alignItems: 'center', gap: 2 }}>
-              <span style={{ width: 20, height: 11, border: '1px solid #f4f6f7', borderRadius: 3, position: 'relative', display: 'inline-block' }}>
-                <span style={{ position: 'absolute', left: 1.5, top: 1.5, bottom: 1.5, width: 12, background: '#f4f6f7', borderRadius: 1 }} />
-              </span>
-              <span style={{ width: 2, height: 4, background: '#f4f6f7', borderRadius: '0 1px 1px 0', display: 'inline-block' }} />
-            </div>
-          </div>
-        </div>
-
         {/* Main row */}
         <div
           style={{
@@ -368,7 +344,7 @@ function MobileSidebar() {
               </div>
 
               <nav style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 4, marginTop: 34, width: '100%' }}>
-                {NAV_ITEMS.map(({ label, to }) => (
+                {NAV_ITEMS.map(({ pl, en, to }) => (
                   <button
                     key={to}
                     onClick={() => handleNavClick(to)}
@@ -390,7 +366,7 @@ function MobileSidebar() {
                       width: '100%',
                     }}
                   >
-                    {label}
+                    {isPl ? pl : en}
                   </button>
                 ))}
               </nav>

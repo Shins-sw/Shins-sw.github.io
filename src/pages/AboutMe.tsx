@@ -10,7 +10,7 @@ export default function AboutMe() {
   return (
     <div
       style={{
-        minHeight: isMobile ? 'calc(100vh - 98px)' : '100vh',
+        minHeight: isMobile ? 'calc(100vh - 62px)' : '100vh',
         overflowY: 'auto',
         padding: isMobile ? '24px 18px 40px' : '48px 60px',
         display: 'flex',

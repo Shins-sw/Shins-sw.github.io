@@ -36,7 +36,7 @@ export default function Contact() {
   return (
     <div
       style={{
-        minHeight: isMobile ? 'calc(100vh - 98px)' : '100vh',
+        minHeight: isMobile ? 'calc(100vh - 62px)' : '100vh',
         display: 'flex',
         alignItems: 'center',
         padding: isMobile ? '24px 18px' : '40px 64px',

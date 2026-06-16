@@ -8,6 +8,6 @@
 @media (max-width: 899px) {
   .content-area {
     padding-left: 0;
-    padding-top: 98px; /* 36px status + 62px top bar */
+    padding-top: 62px; /* top bar height */
   }
 }
