@@ -66,7 +66,7 @@ export default function Gallery() {
   return (
     <div
       style={{
-        minHeight: isMobile ? 'calc(100vh - 98px)' : '100vh',
+        minHeight: isMobile ? 'calc(100vh - 62px)' : '100vh',
         overflowY: 'auto',
         padding: isMobile ? '24px 18px 32px' : '48px 56px 48px',
       }}
